@@ -30,5 +30,9 @@ if start_date is not None and end_date is not None:
         st.write("Charts")
         y = stockData['Close'].squeeze()
         line_charts = px.line(stockData, stockData.index, y=y, title=ticker_symbol)
+        line_charts.update_layout(
+        yaxis_title="Closing Price",
+        xaxis_title="Date"
+        )
         st.plotly_chart(line_charts)
 
